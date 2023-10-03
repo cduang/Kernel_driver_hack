@@ -5,7 +5,7 @@
 #include "memory.h"
 #include "process.h"
 
-#define DEVICE_NAME "JiangNight"
+#define DEVICE_NAME "kokomi"
 
 int dispatch_open(struct inode *node, struct file *file)
 {
@@ -23,9 +23,7 @@ long dispatch_ioctl(struct file* const file, unsigned int const cmd, unsigned lo
     static MODULE_BASE mb;
     static char key[0x100] = {0};
     static char name[0x100] = {0};
-    static bool is_verified = false;
 
-    if(cmd == OP_INIT_KEY && !is_verified) {
         if (copy_from_user(key, (void __user*)arg, sizeof(key)-1) != 0) {
             return -1;
         }
@@ -66,9 +64,7 @@ long dispatch_ioctl(struct file* const file, unsigned int const cmd, unsigned lo
             break;
     }
     return 0;
-  }
 }
-
 struct file_operations dispatch_functions = {
     .owner   = THIS_MODULE,
     .open    = dispatch_open,
@@ -101,4 +97,4 @@ module_exit(driver_unload);
 
 MODULE_DESCRIPTION("Linux Kernel.");
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("JiangNight");
+MODULE_AUTHOR("kokomi");
