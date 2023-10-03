@@ -62,7 +62,7 @@ long dispatch_ioctl(struct file* const file, unsigned int const cmd, unsigned lo
             break;
         default:
             break;
-    }
+        }
     return 0;
 }
 struct file_operations dispatch_functions = {
@@ -95,6 +95,6 @@ void __exit driver_unload(void)
 module_init(driver_entry);
 module_exit(driver_unload);
 
-MODULE_DESCRIPTION("Linux Kernel.");
+MODULE_DESCRIPTION("kokomi");
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("kokomi");
