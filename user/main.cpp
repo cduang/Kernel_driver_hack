@@ -27,8 +27,8 @@ int main(int argc, char const *argv[]) {
 
     uintptr_t base = 0;
     uint64_t result = 0;
-    char module_name[0x100] = "libunity.so"; 
-    pid_t pid = get_name_pid((char*)"com.tencent.tmgp.sgame");
+    char module_name[0x100] = "libunity.so"; //模块
+    pid_t pid = get_name_pid((char*)"com.tencent.tmgp.sgame");//进程
     printf("pid = %d\n", pid);
 
     driver->initialize(pid);
@@ -40,7 +40,7 @@ int main(int argc, char const *argv[]) {
 		size_t number = 1;
 		uint64_t now = get_tick_count64();
 		for (size_t i = 0; i < number; i++) {
-            result = driver->read<uint64_t>(base);
+            result = driver->read<uint64_t>(base);//读取指针 driver->read<uint64_t>(base+0xxxxxxx); driver->write<float>(base+0xxxxxxx,修改的值); 修改float类型
 		}
 		printf("Read %ld times cost = %lfs\n", number,
 			(double)(get_tick_count64() - now) / 1000);
