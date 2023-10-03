@@ -1,7 +1,7 @@
 #include <sys/fcntl.h>
 #include <sys/ioctl.h>
 
-#define DEVICE_NAME "/dev/JiangNight"
+#define DEVICE_NAME "/dev/kokomi"
 
 class c_driver {
 private:
