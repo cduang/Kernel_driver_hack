@@ -4,7 +4,6 @@
 #if(LINUX_VERSION_CODE >= KERNEL_VERSION(4,14,0))
 #include <linux/sched/mm.h>
 #endif
-
 phys_addr_t translate_linear_address(struct mm_struct* mm, uintptr_t va);
 
 bool read_physical_address(phys_addr_t pa, void* buffer, size_t size);
